@@ -27,6 +27,11 @@ pipeline {
                 sh 'mvn install' 
             }
         }
+        stage('delivery'){
+          steps {
+          sh 'mvn deploy'
+             }
+        }
         stage('deploy') {
             steps {
                 sh 'mvn tomcat7:undeploy tomcat7:deploy'
